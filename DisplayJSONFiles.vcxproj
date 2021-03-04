@@ -276,7 +276,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DisplayJSONFiles.def" />
-    <None Include="ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="DisplayJSONFiles.idl">
@@ -333,7 +332,6 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="typeinfoex.h" />
-    <ClInclude Include="unicheck.h" />
     <ClInclude Include="WinMergeScript.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

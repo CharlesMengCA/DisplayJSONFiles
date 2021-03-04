@@ -29,7 +29,6 @@
     <None Include="DisplayJSONFiles.def">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="ChangeLog.txt" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="DisplayJSONFiles.idl">
@@ -49,9 +48,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="typeinfoex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="unicheck.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WinMergeScript.h">
