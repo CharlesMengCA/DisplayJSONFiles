@@ -8,7 +8,7 @@ import "oaidl.idl";
 import "ocidl.idl";
 	[
 		object,
-		uuid(5B97F005-C0A1-49D8-9FDD-CE947CB6A068),
+		uuid(A978393E-6AEB-4F88-933D-EE8395EE38C6),
 		dual,
 		helpstring("IWinMergeScript Interface"),
 		pointer_default(unique)
@@ -27,7 +27,7 @@ import "ocidl.idl";
 	};
 
 [
-	uuid(73CA3032-1401-40BB-A73D-F719CD135EB2),
+	uuid(FDADED2E-6E39-47BB-99BB-BA028F251B29),
 	version(1.0),
 	helpstring("DisplayJSONFiles 1.0 Type Library")
 ]
@@ -37,7 +37,7 @@ library DisplayJSONFilesLib
 	importlib("stdole2.tlb");
 
 	[
-		uuid(E408AD39-EC2E-4615-B474-F98FDDF2ED93),
+		uuid(E56B02C7-15F5-4A2C-A5D9-21D9E371A392),
 		helpstring("WinMergeScript Class")
 	]
 	coclass WinMergeScript

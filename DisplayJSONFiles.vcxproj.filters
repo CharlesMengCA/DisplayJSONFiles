@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{ea9902de-fde9-46d2-be3c-14f1275e3b96}</UniqueIdentifier>
+      <UniqueIdentifier>{f530902f-cba2-493b-b12e-7ea3fe25f053}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{9d7e15e0-d223-44e6-b699-babecbd300b4}</UniqueIdentifier>
+      <UniqueIdentifier>{5dcd8165-e97a-4f34-808d-85eb6e2da2d2}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{139bfb5c-a313-4156-bbf9-05c1349eb0a8}</UniqueIdentifier>
+      <UniqueIdentifier>{73129c1c-3e72-49cc-82ba-cf4ec456f914}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
   </ItemGroup>
@@ -45,9 +45,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="StdAfx.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="typeinfoex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WinMergeScript.h">
@@ -159,6 +156,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rapidjson\stringbuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidjson\uri.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rapidjson\writer.h">

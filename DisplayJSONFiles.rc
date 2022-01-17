@@ -13,7 +13,7 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// English (Canada) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_CAN
@@ -51,15 +51,15 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,1,10305
- PRODUCTVERSION 1,0,1,10305
+ FILEVERSION 1,0,2,20117
+ PRODUCTVERSION 1,0,2,20117
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
 #else
  FILEFLAGS 0x0L
 #endif
- FILEOS 0x40004L
+ FILEOS 0x4L
  FILETYPE 0x2L
  FILESUBTYPE 0x0L
 BEGIN
@@ -69,12 +69,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Charles Meng"
             VALUE "FileDescription", "DisplayJSONFiles Module"
-            VALUE "FileVersion", "1, 0, 1, 10305"
+            VALUE "FileVersion", "1.0.2.20117"
             VALUE "InternalName", "DisplayJSONFiles"
-            VALUE "LegalCopyright", "Copyright (C) 2021"
+            VALUE "LegalCopyright", "Copyright 2003-2022"
             VALUE "OriginalFilename", "DisplayJSONFiles.DLL"
             VALUE "ProductName", "DisplayJSONFiles Module"
-            VALUE "ProductVersion", "1, 0, 1, 10305"
+            VALUE "ProductVersion", "1.0.2.20117"
         END
     END
     BLOCK "VarFileInfo"
@@ -94,7 +94,7 @@ BEGIN
     IDS_PROJNAME            "DisplayJSONFiles"
 END
 
-#endif    // English (Canada) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
