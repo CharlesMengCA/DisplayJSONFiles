@@ -22,7 +22,7 @@ STDMETHODIMP CWinMergeScript::get_PluginEvent(BSTR *pVal)
 
 STDMETHODIMP CWinMergeScript::get_PluginDescription(BSTR *pVal)
 {
-	*pVal = SysAllocString(L"This plugins hides the first non-space character");
+	*pVal = SysAllocString(L"Prettify JSON files so WinMerge can compare them");
 	return S_OK;
 }
 
