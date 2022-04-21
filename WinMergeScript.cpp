@@ -2,11 +2,11 @@
 #include "stdafx.h"
 #include "DisplayJSONFiles.h"
 #include "WinMergeScript.h"
-#include "rapidjson/reader.h"
-#include "rapidjson/prettywriter.h"
-#include "rapidjson/filereadstream.h"
-#include "rapidjson/filewritestream.h"
-#include "rapidjson/error/en.h"
+#include "rapidjson/include/rapidjson/reader.h"
+#include "rapidjson/include/rapidjson/prettywriter.h"
+#include "rapidjson/include/rapidjson/filereadstream.h"
+#include "rapidjson/include/rapidjson/filewritestream.h"
+#include "rapidjson/include/rapidjson/error/en.h"
 
 using namespace rapidjson;
 
