@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include "DisplayJSONFiles.h"
 #include "WinMergeScript.h"
+#include "winbase.h"
+
 #include "rapidjson/include/rapidjson/prettywriter.h"
 #include "rapidjson/include/rapidjson/filereadstream.h"
 #include "rapidjson/include/rapidjson/filewritestream.h"
@@ -178,18 +180,12 @@ STDMETHODIMP CWinMergeScript::UnpackFile(BSTR fileSrc, BSTR fileDst, VARIANT_BOO
 STDMETHODIMP CWinMergeScript::PackFile(BSTR fileSrc, BSTR fileDst, VARIANT_BOOL* pbChanged, INT pSubcode, VARIANT_BOOL* pbSuccess)
 {
 	// Prepare reader and input stream.
-	FILE* fi, * fo;
-	char* readBuffer, * writeBuffer;
+	FILE* fi;
+	char* readBuffer;
 
 	_wfopen_s(&fi, fileSrc, L"rb");
 	readBuffer = (char*)malloc(65536);
 	FileReadStream is(fi, readBuffer, sizeof(readBuffer));
-
-	// Prepare writer and output stream.
-	_wfopen_s(&fo, fileDst, L"wb");
-	writeBuffer = (char*)malloc(65536);
-	FileWriteStream os(fo, writeBuffer, sizeof(writeBuffer));
-	Writer<FileWriteStream> writer(os);
 
 	Document d;
 
@@ -200,17 +196,15 @@ STDMETHODIMP CWinMergeScript::PackFile(BSTR fileSrc, BSTR fileDst, VARIANT_BOOL*
 	}
 	else
 	{
-		d.Accept(writer);
+		CopyFile(fileSrc, fileDst, FALSE);
 
 		*pbChanged = VARIANT_TRUE;
 		*pbSuccess = VARIANT_TRUE;
 	}
 
 	free(readBuffer);
-	free(writeBuffer);
 
 	if (fi) fclose(fi);
-	if (fo) fclose(fo);
 
 	return S_OK;
 }
