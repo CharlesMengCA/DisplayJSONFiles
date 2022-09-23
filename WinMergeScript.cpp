@@ -76,28 +76,68 @@ auto criteriaObject = [](const Value::Member& left, const Value::Member& right) 
 
 auto criteriaArrayObject = [](const Value& left, const Value& right) -> bool
 {
-	const char* leftStr = left.MemberBegin()->name.GetString();
-	const char* rightStr = right.MemberBegin()->name.GetString();
+	if (left.IsObject() && right.IsObject())
+	{
+		const char* leftStr = left.MemberBegin()->name.GetString();
+		const char* rightStr = right.MemberBegin()->name.GetString();
 
-	return strcmp(leftStr, rightStr) < 0;
+		return strcmp(leftStr, rightStr) < 0;
+	}
+
+	return left.GetType() > right.GetType();
 };
 
 auto criteriaNumber = [](const Value& left, const Value& right)
 {
-	return left.GetDouble() < right.GetDouble();
+	if (left.IsNumber() && right.IsNumber())
+	{
+		return left.GetDouble() < right.GetDouble();
+	}
+
+	return left.GetType() > right.GetType();
 };
 
 auto criteriaString = [](const Value& left, const Value& right)
 {
-	return strcmp(left.GetString(), right.GetString()) < 0;
+	if (left.IsString() && right.IsString())
+	{
+		return strcmp(left.GetString(), right.GetString()) < 0;
+	}
+
+	return left.GetType() > right.GetType();
 };
 
 auto criteriaType = [](const Value& left, const Value& right)
 {
-	Type leftType = left.GetType();
-	Type rightType = right.GetType();
+	return left.GetType() > right.GetType();
+};
 
-	return leftType < rightType;
+auto criteriaArray = [](const Value& left, const Value& right)
+{
+	if (left.IsArray() && right.IsArray()) {
+
+		if (left[0].IsNumber() && right[0].IsNumber())
+		{
+			return left[0].GetDouble() < right[0].GetDouble();
+		}
+
+		if (left[0].IsString() && right[0].IsString())
+		{
+			return strcmp(left[0].GetString(), right[0].GetString()) < 0;
+		}
+
+		if (left[0].IsObject() && right[0].IsObject())
+		{
+			const char* leftStr = left[0].MemberBegin()->name.GetString();
+			const char* rightStr = right[0].MemberBegin()->name.GetString();
+
+			return strcmp(leftStr, rightStr) < 0;
+		}
+
+		return left[0].GetType() > right[0].GetType();
+	}
+
+	return left.GetType() > right.GetType();
 };
 
 void SortValue(rapidjson::Value& d) {
@@ -113,23 +153,31 @@ void SortValue(rapidjson::Value& d) {
 	}
 	else if (d.IsArray()) {
 
-		if (d[0].IsNumber()) {
+		for (SizeType i = 0; i < d.Size(); i++)
+		{
+			SortValue(d[i]);
+		}
+
+		if (d[0].IsNumber())
+		{
 			SortItemsOfArray(d, criteriaNumber);
 		}
-		else if (d[0].IsString()) {
+		else if (d[0].IsString())
+		{
 			SortItemsOfArray(d, criteriaString);
 		}
-		else if (d[0].IsObject()) {
-
-			for (SizeType i = 0; i < d.Size(); i++)
-			{
-				SortValue(d[i]);
-			}
-
+		else if (d[0].IsArray())
+		{
+			SortItemsOfArray(d, criteriaArray);
+		}
+		else if (d[0].IsObject())
+		{
 			SortItemsOfArray(d, criteriaArrayObject);
 		}
-
-		SortItemsOfArray(d, criteriaType);
+		else
+		{
+			SortItemsOfArray(d, criteriaType);
+		}
 	}
 }
 
